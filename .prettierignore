@@ -1,0 +1,11 @@
+!*.ts
+!*.tsx
+!*.json
+!*.js
+.git/
+.husky/
+.nyc_output/
+.vscode/
+coverage/
+node_modules/
+build/

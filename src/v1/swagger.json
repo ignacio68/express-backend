@@ -1,0 +1,123 @@
+{
+	"openapi": "3.1.0",
+	"info": {
+		"title": "REST API for Swagger Documentation",
+		"contact": {
+			"email": "ignaciolopezamor@gmail.com"
+		},
+		"license": {
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+		},
+		"version": "1.0.0",
+		"description": ""
+	},
+	"servers": [{ "url": "http://localhost:3000/api/v1" }],
+	"tags": [
+		{
+			"name": "Authorization",
+			"description": "User registration and login"
+		},
+		{
+			"name": "Users",
+			"description": "Users management"
+		}
+	],
+	"paths": {
+		"/auth/login": {
+			"put": {
+				"tags": ["Authorization"],
+				"summary": "Logs user into the system",
+				"description": "",
+				"operationId": "loginUser",
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "The user email for login",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "password",
+						"in": "query",
+						"description": "The password for login in clear text",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid username/password supplied"
+					}
+				}
+			}
+		},
+		"/auth/register": {
+			"put": {
+				"tags": ["Authorization"],
+				"summary": "Register user into the system",
+				"description": "",
+				"operationId": "registerUser",
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "The user email for register",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "password",
+						"in": "query",
+						"description": "The password for register",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "userName",
+						"in": "query",
+						"description": "The user name for register",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid username/password supplied"
+					}
+				}
+			}
+		}
+	}
+}
